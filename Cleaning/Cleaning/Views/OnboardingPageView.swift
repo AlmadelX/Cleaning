@@ -16,23 +16,44 @@ struct OnboardingPageView: View {
                 .ignoresSafeArea()
             
             VStack {
+                Image("Onboarding" + String(page))
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                
+                Spacer()
+            }
+            .ignoresSafeArea()
+            
+            VStack {
                 HStack {
                     Circle()
                         .frame(width: 9, height: 9)
                         .foregroundColor(model.indicatorColor)
                         .opacity(model.indicatorsOpacities[0])
+                        .padding(.horizontal, 6)
                     Circle()
                         .frame(width: 9, height: 9)
                         .foregroundColor(model.indicatorColor)
                         .opacity(model.indicatorsOpacities[1])
+                        .padding(.horizontal, 6)
                     Circle()
                         .frame(width: 9, height: 9)
                         .foregroundColor(model.indicatorColor)
                         .opacity(model.indicatorsOpacities[2])
-                    
+                        .padding(.horizontal, 6)
+                        
                     Spacer()
                 }
-                .padding(.vertical)
+                .padding()
+                
+                Spacer()
+                
+                Text(model.title)
+                    .font(.system(size: 32))
+                    .fontWeight(.bold)
+                    .foregroundColor(model.titleColor)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 35)
                 
                 if page == pages.count - 1 {
                     RoundedRectangle(cornerRadius: 15)
@@ -48,10 +69,7 @@ struct OnboardingPageView: View {
                             .foregroundColor(model.buttonColor)
                     }
                 }
-                
-                Spacer()
             }
-            .padding()
         }
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
@@ -67,6 +85,8 @@ struct OnboardingPageView_Previews: PreviewProvider {
             ]),
             indicatorColor: Color(R: 255, G: 255, B: 255),
             indicatorsOpacities: [1.0, 0.4, 0.4],
+            title: "Блестящее качество",
+            titleColor: Color(R: 255, G: 255, B: 255),
             buttonColor: Color(R: 255, G: 255, B: 255)
         )
     ]
