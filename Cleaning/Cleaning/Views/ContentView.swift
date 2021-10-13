@@ -5,8 +5,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            Text("Main")
-                .padding()
+            MainView()
         }
         .fullScreenCover(isPresented: $appState.showOnboarding) {
             OnboardingView()
