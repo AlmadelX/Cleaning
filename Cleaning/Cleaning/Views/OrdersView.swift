@@ -2,11 +2,11 @@ import SwiftUI
 
 struct OrdersView: View {
     enum Section {
-        case current
+        case relevant
         case completed
     }
     
-    @State var section = Section.current
+    @State var section = Section.relevant
     
     let activeColor = Color(R: 54, G: 86, B: 249)
     let inactiveColor = Color(R: 198, G: 207, B: 255)
@@ -18,15 +18,15 @@ struct OrdersView: View {
                 
                 VStack(spacing: 5) {
                     Text("Актуальные")
-                        .foregroundColor(section == .current ? activeColor : inactiveColor)
+                        .foregroundColor(section == .relevant ? activeColor : inactiveColor)
                     
                     RoundedRectangle(cornerRadius: 26.0)
                         .frame(width: 13, height: 3)
                         .foregroundColor(activeColor)
-                        .opacity(section == .current ? 1.0 : 0.0)
+                        .opacity(section == .relevant ? 1.0 : 0.0)
                 }
                 .onTapGesture {
-                    section = .current
+                    section = .relevant
                 }
                 
                 Spacer()
@@ -48,18 +48,16 @@ struct OrdersView: View {
             }
             .font(.system(size: 24))
             
-            Spacer()
-            
             Group {
                 switch(section) {
-                case .current:
-                    Text("Current")
+                case .relevant:
+                    RelevantOrdersView()
                 case .completed:
+                    Spacer()
                     Text("Completed")
+                    Spacer()
                 }
             }
-            
-            Spacer()
         }
         .padding(.vertical)
     }

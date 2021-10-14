@@ -26,7 +26,7 @@ struct MainView: View {
                 endPoint: .bottomTrailing
             )
 
-            VStack {
+            VStack(alignment: .leading) {
                 Group {
                     switch(currentScreen) {
                     case .orders:
