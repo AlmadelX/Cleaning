@@ -26,7 +26,7 @@ struct MainView: View {
                 endPoint: .bottomTrailing
             )
 
-            VStack(alignment: .leading) {
+            VStack() {
                 Group {
                     switch(currentScreen) {
                     case .orders:
@@ -67,6 +67,7 @@ struct MainView: View {
 
                             Text("Заказы")
                                 .font(.system(size: 15))
+                                .fontWeight(.semibold)
 
                             Spacer()
                         }
@@ -90,6 +91,7 @@ struct MainView: View {
 
                             Text("Клинеры")
                                 .font(.system(size: 15))
+                                .fontWeight(.semibold)
 
                             Spacer()
                         }
@@ -113,6 +115,7 @@ struct MainView: View {
 
                             Text("Бонусы")
                                 .font(.system(size: 15))
+                                .fontWeight(.semibold)
 
                             Spacer()
                         }
@@ -136,6 +139,7 @@ struct MainView: View {
 
                             Text("Помощь")
                                 .font(.system(size: 15))
+                                .fontWeight(.semibold)
 
                             Spacer()
                         }

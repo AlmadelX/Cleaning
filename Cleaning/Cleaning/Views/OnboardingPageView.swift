@@ -35,7 +35,6 @@ struct OnboardingPageView: View {
                     .font(.system(size: 17))
                     .fontWeight(.semibold)
                     .foregroundColor(model.textColor)
-                    .opacity(model.textOpacity)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 35)
                     .padding(.bottom, 35)
@@ -108,8 +107,8 @@ struct OnboardingPageView_Previews: PreviewProvider {
             titleColor: Color(R: 255, G: 255, B: 255),
             text: "Наши клинеры - настоящие мастера своего дела, а используемые нами материалы сертифицированны и безопасны",
             textColor: Color(R: 220, G: 224, B: 242),
-            textOpacity: 1.0,
-            buttonColor: Color(R: 255, G: 255, B: 255)
+            buttonColor: Color(R: 255, G: 255, B: 255),
+            buttonArrowColor: Color("LighterBlue")
         )
     ]
     

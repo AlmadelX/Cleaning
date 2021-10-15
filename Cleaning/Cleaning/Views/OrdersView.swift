@@ -19,6 +19,7 @@ struct OrdersView: View {
                 VStack(spacing: 5) {
                     Text("Актуальные")
                         .foregroundColor(section == .relevant ? activeColor : inactiveColor)
+                        .fontWeight(.bold)
                     
                     RoundedRectangle(cornerRadius: 26.0)
                         .frame(width: 13, height: 3)
@@ -34,6 +35,7 @@ struct OrdersView: View {
                 VStack(spacing: 5) {
                     Text("Выполненные")
                         .foregroundColor(section == .completed ? activeColor : inactiveColor)
+                        .fontWeight(.bold)
                     
                     RoundedRectangle(cornerRadius: 26.0)
                         .frame(width: 13, height: 3)

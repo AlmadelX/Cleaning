@@ -8,6 +8,6 @@ struct OnboardingPageModel {
     var titleColor: Color
     var text: String
     var textColor: Color
-    var textOpacity: Double
     var buttonColor: Color
+    var buttonArrowColor: Color
 }

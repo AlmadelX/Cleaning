@@ -25,11 +25,52 @@ struct RelevantOrdersView: View {
                 VStack {
                     Spacer()
                     
-                    RoundedRectangle(cornerRadius: 14)
-                        .foregroundColor(Color(R: 255, G: 255, B: 255))
-                        .padding(.horizontal, 32)
-                        .frame(height: metrics.size.height * 0.47)
-                        .padding(.bottom)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 14)
+                            .foregroundColor(Color(R: 255, G: 255, B: 255))
+                        
+                        VStack {
+                            Text("Закажите уборку")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .padding(.horizontal)
+                                .padding(.top)
+                            Text("Пришлем проверенного клинера и наведем порядок в вашем доме")
+                                .fontWeight(.semibold)
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, 32)
+                                .foregroundColor(Color(R: 147, G: 151, B: 174))
+                            
+                            Spacer()
+                            
+                            HStack {
+                                Image("High_Voltage")
+                                    .resizable()
+                                    .frame(width: 24, height: 24)
+                                
+                                Text("от 650 ₽")
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 22))
+                                    .foregroundColor(Color(R: 77, G: 82, B: 107))
+                            }
+                            .padding(.horizontal, 32)
+                            
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 11)
+                                    .foregroundColor(Color(R: 54, G: 86, B: 249))
+                                
+                                HStack {
+//                                    Text("Заказать уборку")
+                                }
+                            }
+                            .frame(height: 60)
+                            .padding()
+                        }
+                        .padding(.horizontal, 8)
+                    }
+                    .padding(.horizontal, 32)
+                    .frame(height: metrics.size.height * 0.47)
+                    .padding(.bottom)
                 }
             }
             .padding(.bottom, metrics.size.height * 0.05)

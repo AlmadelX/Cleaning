@@ -4,45 +4,45 @@ struct OnboardingView: View {
     let pages = [
         OnboardingPageModel(
             background: Gradient(colors: [
-                Color(R: 54, G: 86, B: 249),
-                Color(R: 43, G: 70, B: 207)
+                Color("LighterBlue"),
+                Color("DarkerBlue")
             ]),
-            indicatorColor: Color(R: 255, G: 255, B: 255),
+            indicatorColor: Color("White"),
             indicatorsOpacities: [1.0, 0.4, 0.4],
             title: "Блестящее качество",
-            titleColor: Color(R: 255, G: 255, B: 255),
+            titleColor: Color("White"),
             text: "Наши клинеры - настоящие мастера своего дела, а используемые нами материалы сертифицированны и безопасны",
-            textColor: Color(R: 220, G: 224, B: 242),
-            textOpacity: 1.0,
-            buttonColor: Color(R: 255, G: 255, B: 255)
+            textColor: Color("LightGrey"),
+            buttonColor: Color("White"),
+            buttonArrowColor: Color("LighterBlue")
         ),
         OnboardingPageModel(
             background: Gradient(colors: [
-                Color(R: 254, G: 252, B: 255),
-                Color(R: 247, G: 248, B: 255)
+                Color("Magnolia"),
+                Color("GhostWhite")
             ]),
-            indicatorColor: Color(R: 54, G: 86, B: 249),
+            indicatorColor: Color("LighterBlue"),
             indicatorsOpacities: [0.5, 1.0, 0.2],
             title: "Эко-френдли клининг",
-            titleColor: Color(R: 65, G: 65, B: 69),
+            titleColor: Color("Grey"),
             text: "После каждой уборки мы забираем ваш мусор, сортируем его и увозим на специализированные свалки.",
-            textColor: Color(R: 77, G: 86, B: 136),
-            textOpacity: 0.7,
-            buttonColor: Color(R: 54, G: 86, B: 249)
+            textColor: Color("BayColor"),
+            buttonColor: Color("LighterBlue"),
+            buttonArrowColor: Color("White")
         ),
         OnboardingPageModel(
             background: Gradient(colors: [
-                Color(R: 254, G: 252, B: 255),
-                Color(R: 255, G: 252, B: 250)
+                Color("Magnolia"),
+                Color("Seashell")
             ]),
-            indicatorColor: Color(R: 254, G: 180, B: 113),
+            indicatorColor: Color("Orange"),
             indicatorsOpacities: [0.5, 0.5, 1.0],
             title: "Небывалая доступность",
-            titleColor: Color(R: 53, G: 52, B: 51),
+            titleColor: Color("Acadia"),
             text: "Клининг никогда не был таким доступным. Вы можете заказывать уборку несколько раз в месяц",
-            textColor: Color(R: 143, G: 140, B: 138),
-            textOpacity: 1.0,
-            buttonColor: Color(R: 254, G: 180, B: 113)
+            textColor: Color("SuvaGrey"),
+            buttonColor: Color("Orange"),
+            buttonArrowColor: Color("White")
         )
     ]
     
