@@ -19,7 +19,7 @@ struct OnboardingPageView: View {
                 HStack {
                     Spacer()
                     
-                    Image("Onboarding" + String(page))
+                    model.image
                         .resizable()
                         .scaledToFit()
                 }
@@ -57,7 +57,9 @@ struct OnboardingPageView: View {
                         }
                     }
                     
-                    Image("OnboardingButtonArrow" + String(page))
+                    Image("ForwardArrow")
+                        .renderingMode(.template)
+                        .foregroundColor(model.buttonArrowColor)
                 }
                 .padding(.bottom, 30)
             }
@@ -98,16 +100,17 @@ struct OnboardingPageView_Previews: PreviewProvider {
     static let pages = [
         OnboardingPageModel(
             background: Gradient(colors: [
-                Color(R: 54, G: 86, B: 249),
-                Color(R: 43, G: 70, B: 207)
+                Color("LighterBlue"),
+                Color("DarkerBlue")
             ]),
-            indicatorColor: Color(R: 255, G: 255, B: 255),
+            indicatorColor: Color("White"),
             indicatorsOpacities: [1.0, 0.4, 0.4],
+            image: Image("WomanWithBackground"),
             title: "Блестящее качество",
-            titleColor: Color(R: 255, G: 255, B: 255),
+            titleColor: Color("White"),
             text: "Наши клинеры - настоящие мастера своего дела, а используемые нами материалы сертифицированны и безопасны",
-            textColor: Color(R: 220, G: 224, B: 242),
-            buttonColor: Color(R: 255, G: 255, B: 255),
+            textColor: Color("LightGrey"),
+            buttonColor: Color("White"),
             buttonArrowColor: Color("LighterBlue")
         )
     ]
