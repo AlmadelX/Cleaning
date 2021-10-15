@@ -1,14 +1,27 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    @EnvironmentObject var appState: AppStateModel
+    
+    @State private var selection = 0
+    
+    let backgrounds = [
+        Gradient(colors: [
+            Color("LighterBlue"),
+            Color("DarkerBlue")
+        ]),
+        Gradient(colors: [
+            Color("Magnolia"),
+            Color("GhostWhite")
+        ]),
+        Gradient(colors: [
+            Color("Magnolia"),
+            Color("Seashell")
+        ])
+    ]
+    
     let pages = [
         OnboardingPageModel(
-            background: Gradient(colors: [
-                Color("LighterBlue"),
-                Color("DarkerBlue")
-            ]),
-            indicatorColor: Color("White"),
-            indicatorsOpacities: [1.0, 0.4, 0.4],
             image: Image("WomanWithBackground"),
             title: "Блестящее качество",
             titleColor: Color("White"),
@@ -18,12 +31,6 @@ struct OnboardingView: View {
             buttonArrowColor: Color("LighterBlue")
         ),
         OnboardingPageModel(
-            background: Gradient(colors: [
-                Color("Magnolia"),
-                Color("GhostWhite")
-            ]),
-            indicatorColor: Color("LighterBlue"),
-            indicatorsOpacities: [0.5, 1.0, 0.2],
             image: Image("Eco-FriendlyMan"),
             title: "Эко-френдли клининг",
             titleColor: Color("Grey"),
@@ -33,12 +40,6 @@ struct OnboardingView: View {
             buttonArrowColor: Color("White")
         ),
         OnboardingPageModel(
-            background: Gradient(colors: [
-                Color("Magnolia"),
-                Color("Seashell")
-            ]),
-            indicatorColor: Color("Orange"),
-            indicatorsOpacities: [0.5, 0.5, 1.0],
             image: Image("EconomicalMan"),
             title: "Небывалая доступность",
             titleColor: Color("Acadia"),
@@ -50,8 +51,56 @@ struct OnboardingView: View {
     ]
     
     var body: some View {
-        NavigationView {
-            OnboardingPageView(pages: pages, page: 0)
+        ZStack {
+            LinearGradient(gradient: backgrounds[selection], startPoint: .topLeading, endPoint: .bottomTrailing)
+                .ignoresSafeArea()
+            
+            VStack {
+                TabView(selection: $selection) {
+                    ForEach(pages.indices, id: \.self) { index in
+                        OnboardingPageView(pages: pages, page: index)
+                    }
+                }
+                .tabViewStyle(.page(indexDisplayMode: .never))
+                
+                ZStack {
+                    RoundedRectangle(cornerRadius: 15)
+                        .frame(width: 60, height: 60)
+                        .foregroundColor(pages[selection].buttonColor)
+                        .onTapGesture {
+                            withAnimation {
+                                if selection == pages.count - 1 {
+                                    appState.showOnboarding = false
+                                } else {
+                                    selection += 1
+                                }
+                            }
+                        }
+                    
+                    Image("ForwardArrow")
+                        .renderingMode(.template)
+                        .foregroundColor(pages[selection].buttonArrowColor)
+                }
+                .padding(.bottom, 30)
+            }
+            
+            VStack {
+                HStack {
+                    PaginationView(
+                        model: PaginationModel(
+                            colors: [Color("White"), Color("LighterBlue"), Color("Orange")],
+                            opacities: [1.0, 0.5]
+                        ),
+                        selection: $selection
+                    )
+                    
+                    Spacer()
+                }
+                .padding(.horizontal)
+                .padding(.top, 32)
+                
+                Spacer()
+            }
         }
     }
 }
