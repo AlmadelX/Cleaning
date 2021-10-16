@@ -9,13 +9,13 @@ struct NumberSelectorElement: View {
         HStack {
             ForEach((1...size), id: \.self) { number in
                 SquareButtonElement(
-                    backgroundColor: (number == selector ? Color("Lavender") : Color("White")),
+                    backgroundColor: (number == selector ? Color("LighterBlue") : Color("Lavender")),
                     action: {
                         selector = number
                     }
                 ) {
                     Text(String(number))
-                        .foregroundColor(Color("LighterBlue"))
+                        .foregroundColor(number == selector ? Color("White") : Color("LighterBlue"))
                         .font(.system(size: 30))
                         .fontWeight(.bold)
                 }
