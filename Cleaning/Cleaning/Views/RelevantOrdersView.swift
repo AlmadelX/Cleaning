@@ -55,16 +55,25 @@ struct RelevantOrdersView: View {
                             }
                             .padding(.horizontal, 32)
                             
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 11)
-                                    .foregroundColor(Color(R: 54, G: 86, B: 249))
-                                
-                                HStack {
-//                                    Text("Заказать уборку")
+                            NavigationLink(destination: OrderStep1View()) {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 11)
+                                        .foregroundColor(Color(R: 54, G: 86, B: 249))
+                                    
+                                    HStack {
+                                        Text("Заказать уборку")
+                                            .fontWeight(.bold)
+                                        Image("ForwardArrow")
+                                            .resizable()
+                                            .renderingMode(.template)
+                                            .scaledToFit()
+                                            .frame(width: 7)
+                                    }
+                                    .foregroundColor(Color("White"))
                                 }
+                                .frame(height: 60)
+                                .padding()
                             }
-                            .frame(height: 60)
-                            .padding()
                         }
                         .padding(.horizontal, 8)
                     }

@@ -6,18 +6,9 @@ struct OnboardingView: View {
     @State private var selection = 0
     
     let backgrounds = [
-        Gradient(colors: [
-            Color("LighterBlue"),
-            Color("DarkerBlue")
-        ]),
-        Gradient(colors: [
-            Color("Magnolia"),
-            Color("GhostWhite")
-        ]),
-        Gradient(colors: [
-            Color("Magnolia"),
-            Color("Seashell")
-        ])
+        [Color("LighterBlue"), Color("DarkerBlue")],
+        [Color("Magnolia"), Color("GhostWhite")],
+        [Color("Magnolia"), Color("Seashell")]
     ]
     
     let pages = [
@@ -52,8 +43,9 @@ struct OnboardingView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(gradient: backgrounds[selection], startPoint: .topLeading, endPoint: .bottomTrailing)
-                .ignoresSafeArea()
+            BackgroundGradientElement(
+                colors: backgrounds[selection]
+            )
             
             VStack {
                 TabView(selection: $selection) {
@@ -63,20 +55,18 @@ struct OnboardingView: View {
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 
-                ZStack {
-                    RoundedRectangle(cornerRadius: 15)
-                        .frame(width: 60, height: 60)
-                        .foregroundColor(pages[selection].buttonColor)
-                        .onTapGesture {
-                            withAnimation {
-                                if selection == pages.count - 1 {
-                                    appState.showOnboarding = false
-                                } else {
-                                    selection += 1
-                                }
+                SquareButtonElement(
+                    backgroundColor: pages[selection].buttonColor,
+                    action: {
+                        withAnimation {
+                            if selection == pages.count - 1 {
+                                appState.showOnboarding = false
+                            } else {
+                                selection += 1
                             }
                         }
-                    
+                    }
+                ) {
                     Image("ForwardArrow")
                         .renderingMode(.template)
                         .foregroundColor(pages[selection].buttonArrowColor)

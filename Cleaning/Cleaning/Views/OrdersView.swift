@@ -62,6 +62,8 @@ struct OrdersView: View {
             }
         }
         .padding(.vertical)
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }
 
