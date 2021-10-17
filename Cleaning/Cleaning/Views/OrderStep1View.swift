@@ -130,7 +130,9 @@ struct OrderStep1View: View {
                     .frame(height: 60)
                     .padding(.horizontal)
                     .padding(.top, 20)
+                    .opacity(numberOfRooms > 0 && numberOfBathrooms > 0 ? 1.0 : 0.0)
                 }
+                .disabled(numberOfRooms == 0 || numberOfBathrooms == 0)
                 
                 Spacer()
             }

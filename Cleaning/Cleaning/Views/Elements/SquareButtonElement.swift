@@ -22,7 +22,7 @@ struct SquareButtonElement<Content: View>: View {
 struct SquareButtonElement_Previews: PreviewProvider {
     static var previews: some View {
         SquareButtonElement(
-            backgroundColor: Color("GhostWhite"),
+            backgroundColor: Color("LighterGhostWhite"),
             action: { print("Pressed!") }
         ) {
             Image("ForwardArrow")

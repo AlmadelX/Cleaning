@@ -7,7 +7,7 @@ struct OnboardingView: View {
     
     let backgrounds = [
         [Color("LighterBlue"), Color("DarkerBlue")],
-        [Color("Magnolia"), Color("GhostWhite")],
+        [Color("Magnolia"), Color("LighterGhostWhite")],
         [Color("Magnolia"), Color("Seashell")]
     ]
     
