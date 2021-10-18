@@ -3,6 +3,8 @@ import SwiftUI
 struct TopBarElement: View {
     @Environment(\.presentationMode) var presentationMode
     
+    var text: String
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 20.0)
@@ -43,7 +45,7 @@ struct TopBarElement: View {
                         .frame(height: 20)
                 }
                 
-                Text("1 Комната, 1 Санузел")
+                Text(text)
                     .foregroundColor(Color("Mischka"))
                     .font(.system(size: 14))
                     .fontWeight(.semibold)
@@ -56,7 +58,7 @@ struct TopBarElement: View {
 struct TopBarElement_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            TopBarElement()
+            TopBarElement(text: "1 Комната, 1 Санузел")
             
             Spacer()
         }

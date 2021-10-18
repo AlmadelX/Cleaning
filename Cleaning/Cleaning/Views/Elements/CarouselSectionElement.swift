@@ -7,7 +7,7 @@ struct CarouselSectionElement: View {
     var backgroundColor: Color
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             HStack {
                 Text(sectionName)
                     .foregroundColor(Color("Vulcan"))

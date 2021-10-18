@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		341C9F3F271C4BF4003CC41F /* BottomMenuElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341C9F3E271C4BF4003CC41F /* BottomMenuElement.swift */; };
+		341C9F41271C4E31003CC41F /* BottomMenuComponentElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341C9F40271C4E31003CC41F /* BottomMenuComponentElement.swift */; };
+		341C9F43271C4F8F003CC41F /* BottomMenuComponentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341C9F42271C4F8F003CC41F /* BottomMenuComponentModel.swift */; };
+		341C9F45271C5577003CC41F /* TopSectionMenuElementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341C9F44271C5577003CC41F /* TopSectionMenuElementModel.swift */; };
+		341C9F47271C5623003CC41F /* TopSectionMenuElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341C9F46271C5623003CC41F /* TopSectionMenuElement.swift */; };
 		342466AC271AB00500DEC0DD /* OrderStep1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342466AB271AB00500DEC0DD /* OrderStep1View.swift */; };
 		342466AF271AB29700DEC0DD /* BackgroundGradientElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342466AE271AB29600DEC0DD /* BackgroundGradientElement.swift */; };
 		342466B1271AB73C00DEC0DD /* SquareButtonElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342466B0271AB73C00DEC0DD /* SquareButtonElement.swift */; };
@@ -31,9 +36,15 @@
 		34C0A1902716807C00E73259 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34C0A18F2716807C00E73259 /* Assets.xcassets */; };
 		34C0A1932716807C00E73259 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34C0A1922716807C00E73259 /* Preview Assets.xcassets */; };
 		34C0A19B2716815B00E73259 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C0A19A2716815B00E73259 /* OnboardingView.swift */; };
+		34D1420D271C6ACA00AB2A02 /* NavigationButtonElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D1420C271C6ACA00AB2A02 /* NavigationButtonElement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		341C9F3E271C4BF4003CC41F /* BottomMenuElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMenuElement.swift; sourceTree = "<group>"; };
+		341C9F40271C4E31003CC41F /* BottomMenuComponentElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMenuComponentElement.swift; sourceTree = "<group>"; };
+		341C9F42271C4F8F003CC41F /* BottomMenuComponentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMenuComponentModel.swift; sourceTree = "<group>"; };
+		341C9F44271C5577003CC41F /* TopSectionMenuElementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSectionMenuElementModel.swift; sourceTree = "<group>"; };
+		341C9F46271C5623003CC41F /* TopSectionMenuElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSectionMenuElement.swift; sourceTree = "<group>"; };
 		342466AB271AB00500DEC0DD /* OrderStep1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStep1View.swift; sourceTree = "<group>"; };
 		342466AE271AB29600DEC0DD /* BackgroundGradientElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradientElement.swift; sourceTree = "<group>"; };
 		342466B0271AB73C00DEC0DD /* SquareButtonElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareButtonElement.swift; sourceTree = "<group>"; };
@@ -59,6 +70,7 @@
 		34C0A18F2716807C00E73259 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34C0A1922716807C00E73259 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		34C0A19A2716815B00E73259 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		34D1420C271C6ACA00AB2A02 /* NavigationButtonElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButtonElement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +94,10 @@
 				342466B8271AF8B600DEC0DD /* CarouselSectionElement.swift */,
 				342466BC271B02B600DEC0DD /* RadioButtonElement.swift */,
 				342466BE271B294800DEC0DD /* CarouselElementView.swift */,
+				341C9F3E271C4BF4003CC41F /* BottomMenuElement.swift */,
+				341C9F40271C4E31003CC41F /* BottomMenuComponentElement.swift */,
+				341C9F46271C5623003CC41F /* TopSectionMenuElement.swift */,
+				34D1420C271C6ACA00AB2A02 /* NavigationButtonElement.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -93,6 +109,8 @@
 				342FE4842716ED3C00236C51 /* AppStateModel.swift */,
 				3444F0382719D9CA00142A50 /* PaginationModel.swift */,
 				342466BA271AFA7000DEC0DD /* CarouselElementModel.swift */,
+				341C9F42271C4F8F003CC41F /* BottomMenuComponentModel.swift */,
+				341C9F44271C5577003CC41F /* TopSectionMenuElementModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -239,9 +257,12 @@
 			files = (
 				342466B7271AEE5300DEC0DD /* TopBarElement.swift in Sources */,
 				342FE4832716D40400236C51 /* CustomExtensions.swift in Sources */,
+				34D1420D271C6ACA00AB2A02 /* NavigationButtonElement.swift in Sources */,
 				342466BD271B02B600DEC0DD /* RadioButtonElement.swift in Sources */,
 				342466BF271B294800DEC0DD /* CarouselElementView.swift in Sources */,
+				341C9F45271C5577003CC41F /* TopSectionMenuElementModel.swift in Sources */,
 				342FE4872717193600236C51 /* MainView.swift in Sources */,
+				341C9F43271C4F8F003CC41F /* BottomMenuComponentModel.swift in Sources */,
 				342FE4802716D23E00236C51 /* OnboardingPageModel.swift in Sources */,
 				342466B9271AF8B700DEC0DD /* CarouselSectionElement.swift in Sources */,
 				34C0A19B2716815B00E73259 /* OnboardingView.swift in Sources */,
@@ -249,15 +270,18 @@
 				342466B1271AB73C00DEC0DD /* SquareButtonElement.swift in Sources */,
 				342FE4852716ED3C00236C51 /* AppStateModel.swift in Sources */,
 				342466AF271AB29700DEC0DD /* BackgroundGradientElement.swift in Sources */,
+				341C9F41271C4E31003CC41F /* BottomMenuComponentElement.swift in Sources */,
 				342466BB271AFA7000DEC0DD /* CarouselElementModel.swift in Sources */,
 				342FE47D2716D15B00236C51 /* OnboardingPageView.swift in Sources */,
 				3444F0392719D9CA00142A50 /* PaginationModel.swift in Sources */,
+				341C9F3F271C4BF4003CC41F /* BottomMenuElement.swift in Sources */,
 				34C0A18C2716807A00E73259 /* CleaningApp.swift in Sources */,
 				342FE48927172F4900236C51 /* OrdersView.swift in Sources */,
 				3444F0372719D8AE00142A50 /* PaginationView.swift in Sources */,
 				342466B3271AD0D700DEC0DD /* NumberSelectorElement.swift in Sources */,
 				342FE48B27173AE800236C51 /* RelevantOrdersView.swift in Sources */,
 				342466B5271AEAFC00DEC0DD /* OrderStep2View.swift in Sources */,
+				341C9F47271C5623003CC41F /* TopSectionMenuElement.swift in Sources */,
 				342466AC271AB00500DEC0DD /* OrderStep1View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,13 +1,16 @@
 import SwiftUI
 
 struct OrderStep2View: View {
+    var numberOfRooms: Int
+    var numberOfBathrooms: Int
+    
     var body: some View {
         ZStack {
             Color("White")
                 .ignoresSafeArea()
             
             VStack {
-                TopBarElement()
+                TopBarElement(text: choice(rooms: numberOfRooms, bathrooms: numberOfBathrooms))
                 
                 ScrollView(.vertical) {
                     Text("Дополнительные услуги")
@@ -126,10 +129,26 @@ struct OrderStep2View: View {
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
     }
+    
+    func choice(rooms: Int, bathrooms: Int) -> String {
+        var result = ""
+        if rooms == 1 {
+            result += "1 Комната, "
+        } else {
+            result += "\(rooms) Комнаты, "
+        }
+        if bathrooms == 1 {
+            result += "1 Санузел"
+        } else {
+            result += "\(bathrooms) Санузла"
+        }
+        
+        return result
+    }
 }
 
 struct OrderStep2View_Previews: PreviewProvider {
     static var previews: some View {
-        OrderStep2View()
+        OrderStep2View(numberOfRooms: 1, numberOfBathrooms: 1)
     }
 }

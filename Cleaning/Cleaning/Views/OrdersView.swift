@@ -1,52 +1,32 @@
 import SwiftUI
 
 struct OrdersView: View {
-    enum Section {
-        case relevant
-        case completed
-    }
+    @State var section = TopSectionMenuElementModel.Sections.relevant
     
-    @State var section = Section.relevant
-    
-    let activeColor = Color(R: 54, G: 86, B: 249)
-    let inactiveColor = Color(R: 198, G: 207, B: 255)
+    private let models = [
+        TopSectionMenuElementModel(
+            section: .relevant,
+            text: "Актуальные"
+        ),
+        TopSectionMenuElementModel(
+            section: .completed,
+            text: "Выполненные"
+        )
+    ]
     
     var body: some View {
         VStack {
             HStack {
                 Spacer()
                 
-                VStack(spacing: 5) {
-                    Text("Актуальные")
-                        .foregroundColor(section == .relevant ? activeColor : inactiveColor)
-                        .fontWeight(.bold)
+                ForEach(models.indices, id: \.self) { id in
+                    TopSectionMenuElement(
+                        currentSelection: $section,
+                        model: models[id]
+                    )
                     
-                    RoundedRectangle(cornerRadius: 26.0)
-                        .frame(width: 13, height: 3)
-                        .foregroundColor(activeColor)
-                        .opacity(section == .relevant ? 1.0 : 0.0)
+                    Spacer()
                 }
-                .onTapGesture {
-                    section = .relevant
-                }
-                
-                Spacer()
-                
-                VStack(spacing: 5) {
-                    Text("Выполненные")
-                        .foregroundColor(section == .completed ? activeColor : inactiveColor)
-                        .fontWeight(.bold)
-                    
-                    RoundedRectangle(cornerRadius: 26.0)
-                        .frame(width: 13, height: 3)
-                        .foregroundColor(activeColor)
-                        .opacity(section == .completed ? 1.0 : 0.0)
-                }
-                .onTapGesture {
-                    section = .completed
-                }
-                
-                Spacer()
             }
             .font(.system(size: 24))
             

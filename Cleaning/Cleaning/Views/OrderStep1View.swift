@@ -99,39 +99,32 @@ struct OrderStep1View: View {
                 
                 NumberSelectorElement(size: 4, selector: $numberOfBathrooms)
                 
-                NavigationLink(destination: OrderStep2View()) {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 13)
-                            .foregroundColor(Color("LighterBlue"))
+                NavigationButtonElement(destination: OrderStep2View(numberOfRooms: numberOfRooms, numberOfBathrooms: numberOfBathrooms)) {
+                    HStack {
+                        Text("≈ 3 Часа")
+                            .foregroundColor(Color("Quartz"))
+                            .font(.system(size: 16))
+                            .fontWeight(.semibold)
+                            .padding(.leading)
                         
-                        HStack {
-                            Text("≈ 3 Часа")
-                                .foregroundColor(Color("Quartz"))
-                                .font(.system(size: 16))
-                                .fontWeight(.semibold)
-                                .padding(.leading)
-                            
-                            Spacer()
-                            
-                            Text("ДАЛЕЕ")
-                                .foregroundColor(Color("WhiteSmoke"))
-                                .font(.system(size: 18))
-                                .fontWeight(.bold)
-                            
-                            Spacer()
-                            
-                            Text("650 ₽")
-                                .foregroundColor(Color("White"))
-                                .font(.system(size: 18))
-                                .fontWeight(.bold)
-                                .padding(.trailing)
-                        }
+                        Spacer()
+                        
+                        Text("ДАЛЕЕ")
+                            .foregroundColor(Color("WhiteSmoke"))
+                            .font(.system(size: 18))
+                            .fontWeight(.bold)
+                        
+                        Spacer()
+                        
+                        Text("650 ₽")
+                            .foregroundColor(Color("White"))
+                            .font(.system(size: 18))
+                            .fontWeight(.bold)
+                            .padding(.trailing)
                     }
-                    .frame(height: 60)
-                    .padding(.horizontal)
-                    .padding(.top, 20)
-                    .opacity(numberOfRooms > 0 && numberOfBathrooms > 0 ? 1.0 : 0.0)
                 }
+                .padding(.top, 5)
+                .opacity(numberOfRooms > 0 && numberOfBathrooms > 0 ? 1.0 : 0.0)
                 .disabled(numberOfRooms == 0 || numberOfBathrooms == 0)
                 
                 Spacer()

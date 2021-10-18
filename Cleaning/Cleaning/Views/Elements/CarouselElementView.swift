@@ -13,83 +13,102 @@ struct CarouselElementView: View {
                 .stroke(Color("WhiteSmoke"), lineWidth: 4)
                 .background(isSelected ? backgroundColor : Color("White"))
             
-            VStack() {
+            VStack(alignment: .leading) {
                 HStack {
                     Spacer()
                     
                     RadioButtonElement(isPressed: $isSelected, color: mainColor)
                 }
+                .padding(.top)
                 
                 Spacer()
-                
+
                 model.image
                     .resizable()
                     .scaledToFit()
-                    .padding(.trailing, 36)
-                
-                HStack() {
+                    .padding(.trailing, 40)
+
+                HStack(alignment: .top, spacing: 0) {
                     Text(model.name)
                         .foregroundColor(Color("Vulcan"))
+                        .font(.system(size: 16))
                         .fontWeight(.bold)
                         .multilineTextAlignment(.leading)
-                        .frame(width: 143, height: 51, alignment: .topLeading)
+//                        .frame(width: 143, height: 51, alignment: .topLeading)
                         .lineLimit(2)
-                    
-                    VStack {
+                        .fixedSize(horizontal: false, vertical: true)
+//
+//                    VStack {
                         Image("InformationIcon")
                             .resizable()
                             .renderingMode(.template)
                             .foregroundColor(Color("StarkWhite"))
                             .scaledToFit()
-                            .frame(width: 16)
-                        
-                        Spacer()
-                    }
-                    .frame(height: 51)
-                    
-                    Spacer()
+                            .frame(width: 10)
+                            .padding(.leading, 5)
+                            .padding(.top, 5)
+//
+//                        Spacer()
+//                    }
+//                    .frame(height: 51)
+//
+//                    Spacer()
                 }
-                
-                HStack {
+//
+                HStack(spacing: 0) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 5.0)
                             .foregroundColor(mainColor)
-                        
+
                         Text(String(model.price) + " ₽")
                             .foregroundColor(Color("White"))
-                            .font(.system(size: 16))
+                            .font(.system(size: 14))
                             .fontWeight(.bold)
                     }
-                    .frame(width: 72, height: 27)
+                    .frame(width: 57, height: 21)
                     .onTapGesture {
                         isSelected.toggle()
                     }
-                    
+//
                     Spacer()
-                    
+//
                     Text(String(model.time) + " мин.")
                         .foregroundColor(Color("StarkWhite"))
-                        .font(.system(size: 16))
                         .fontWeight(.semibold)
+                        .font(.system(size: 14))
                 }
+                .padding(.bottom)
             }
-            .padding()
+            .padding(.horizontal)
         }
-        .frame(width: 212, height: 261)
+        .frame(maxWidth: 176, maxHeight: 217)
     }
 }
 
 struct CarouselElementView_Previews: PreviewProvider {
     static var previews: some View {
-        CarouselElementView(
-            model: CarouselElementModel(
-                image: Image("Pan"),
-                name: "Помыть плиту",
-                price: 320,
-                time: 20
-            ),
-            mainColor: Color("NeonCarrot"),
-            backgroundColor: Color("Linen")
-        )
+        HStack {
+            CarouselElementView(
+                model: CarouselElementModel(
+                    image: Image("Pan"),
+                    name: "Помыть\nплиту",
+                    price: 320,
+                    time: 20
+                ),
+                mainColor: Color("NeonCarrot"),
+                backgroundColor: Color("Linen")
+            )
+            
+            CarouselElementView(
+                model: CarouselElementModel(
+                    image: Image("Pan"),
+                    name: "Помыть внутри\nмикроволновки",
+                    price: 320,
+                    time: 20
+                ),
+                mainColor: Color("NeonCarrot"),
+                backgroundColor: Color("Linen")
+            )
+        }
     }
 }

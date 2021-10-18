@@ -8,7 +8,7 @@ struct RelevantOrdersView: View {
                     Spacer()
                     
                     RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(Color(R: 237, G: 240, B: 255))
+                        .foregroundColor(Color("Lavender"))
                         .padding(.horizontal)
                         .frame(width: metrics.size.width, height: metrics.size.height * 0.75)
                 }
@@ -27,10 +27,11 @@ struct RelevantOrdersView: View {
                     
                     ZStack {
                         RoundedRectangle(cornerRadius: 14)
-                            .foregroundColor(Color(R: 255, G: 255, B: 255))
+                            .foregroundColor(Color("White"))
                         
                         VStack {
                             Text("Закажите уборку")
+                                .foregroundColor(Color("Acadia"))
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .padding(.horizontal)
@@ -39,7 +40,7 @@ struct RelevantOrdersView: View {
                                 .fontWeight(.semibold)
                                 .multilineTextAlignment(.center)
                                 .padding(.horizontal, 32)
-                                .foregroundColor(Color(R: 147, G: 151, B: 174))
+                                .foregroundColor(Color("Manatee"))
                             
                             Spacer()
                             
@@ -51,28 +52,21 @@ struct RelevantOrdersView: View {
                                 Text("от 650 ₽")
                                     .fontWeight(.bold)
                                     .font(.system(size: 22))
-                                    .foregroundColor(Color(R: 77, G: 82, B: 107))
+                                    .foregroundColor(Color("EastBay"))
                             }
                             .padding(.horizontal, 32)
                             
-                            NavigationLink(destination: OrderStep1View()) {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 11)
-                                        .foregroundColor(Color(R: 54, G: 86, B: 249))
+                            NavigationButtonElement(destination: OrderStep1View()) {
+                                HStack {
+                                    Text("Заказать уборку")
+                                        .fontWeight(.bold)
                                     
-                                    HStack {
-                                        Text("Заказать уборку")
-                                            .fontWeight(.bold)
-                                        Image("ForwardArrow")
-                                            .resizable()
-                                            .renderingMode(.template)
-                                            .scaledToFit()
-                                            .frame(width: 7)
-                                    }
-                                    .foregroundColor(Color("White"))
+                                    Image("ForwardArrow")
+                                        .resizable()
+                                        .renderingMode(.template)
+                                        .scaledToFit()
+                                        .frame(width: 7)
                                 }
-                                .frame(height: 60)
-                                .padding()
                             }
                         }
                         .padding(.horizontal, 8)

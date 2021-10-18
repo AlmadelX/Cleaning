@@ -13,10 +13,10 @@ struct RadioButtonElement: View {
             Circle()
                 .foregroundColor(color)
                 .opacity(isPressed ? 1.0 : 0.0)
-                .frame(width: 14, height: 14)
+                .frame(width: 12, height: 12)
         }
         .scaledToFit()
-        .frame(height: 22)
+        .frame(height: 18)
         .onTapGesture {
             isPressed.toggle()
         }
