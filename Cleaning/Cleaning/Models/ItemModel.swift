@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CarouselElementModel {
+struct ItemModel {
     var image: Image
     var name: String
     var price: Int

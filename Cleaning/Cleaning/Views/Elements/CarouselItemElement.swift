@@ -1,17 +1,22 @@
 import SwiftUI
 
-struct CarouselElementView: View {
-    var model: CarouselElementModel
+struct CarouselItemElement: View {
+    var model: ItemModel
     var mainColor: Color
     var backgroundColor: Color
     
     @State private var isSelected = false
     
+    @Binding var price: Int
+    @Binding var time: Double
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 15.0)
+                .fill(isSelected ? backgroundColor : Color("White"))
+            
+            RoundedRectangle(cornerRadius: 15.0)
                 .stroke(Color("WhiteSmoke"), lineWidth: 4)
-                .background(isSelected ? backgroundColor : Color("White"))
             
             VStack(alignment: .leading) {
                 HStack {
@@ -31,14 +36,12 @@ struct CarouselElementView: View {
                 HStack(alignment: .top, spacing: 0) {
                     Text(model.name)
                         .foregroundColor(Color("Vulcan"))
-                        .font(.system(size: 16))
+                        .font(.system(size: 14))
                         .fontWeight(.bold)
                         .multilineTextAlignment(.leading)
-//                        .frame(width: 143, height: 51, alignment: .topLeading)
                         .lineLimit(2)
                         .fixedSize(horizontal: false, vertical: true)
-//
-//                    VStack {
+                    
                         Image("InformationIcon")
                             .resizable()
                             .renderingMode(.template)
@@ -47,14 +50,8 @@ struct CarouselElementView: View {
                             .frame(width: 10)
                             .padding(.leading, 5)
                             .padding(.top, 5)
-//
-//                        Spacer()
-//                    }
-//                    .frame(height: 51)
-//
-//                    Spacer()
                 }
-//
+                
                 HStack(spacing: 0) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 5.0)
@@ -66,12 +63,9 @@ struct CarouselElementView: View {
                             .fontWeight(.bold)
                     }
                     .frame(width: 57, height: 21)
-                    .onTapGesture {
-                        isSelected.toggle()
-                    }
-//
+
                     Spacer()
-//
+
                     Text(String(model.time) + " мин.")
                         .foregroundColor(Color("StarkWhite"))
                         .fontWeight(.semibold)
@@ -81,33 +75,49 @@ struct CarouselElementView: View {
             }
             .padding(.horizontal)
         }
-        .frame(maxWidth: 176, maxHeight: 217)
+        .frame(width: 176, height: 217)
+        .onTapGesture {
+            isSelected.toggle()
+        }
+        .onChange(of: isSelected) { value in
+            if value {
+                price += model.price
+                time += Double(model.time) / 60.0
+            } else {
+                price -= model.price
+                time -= Double(model.time) / 60.0
+            }
+        }
     }
 }
 
-struct CarouselElementView_Previews: PreviewProvider {
+struct CarouselItemElement_Previews: PreviewProvider {
     static var previews: some View {
         HStack {
-            CarouselElementView(
-                model: CarouselElementModel(
+            CarouselItemElement(
+                model: ItemModel(
                     image: Image("Pan"),
                     name: "Помыть\nплиту",
                     price: 320,
                     time: 20
                 ),
                 mainColor: Color("NeonCarrot"),
-                backgroundColor: Color("Linen")
+                backgroundColor: Color("Linen"),
+                price: .constant(0),
+                time: .constant(0.0)
             )
             
-            CarouselElementView(
-                model: CarouselElementModel(
+            CarouselItemElement(
+                model: ItemModel(
                     image: Image("Pan"),
                     name: "Помыть внутри\nмикроволновки",
                     price: 320,
                     time: 20
                 ),
                 mainColor: Color("NeonCarrot"),
-                backgroundColor: Color("Linen")
+                backgroundColor: Color("Linen"),
+                price: .constant(0),
+                time: .constant(0.0)
             )
         }
     }

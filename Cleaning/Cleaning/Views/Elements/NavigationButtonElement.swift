@@ -3,7 +3,7 @@ import SwiftUI
 struct NavigationButtonElement<Destination: View, Content: View>: View {
     var destination: Destination
     var label: () -> Content
-    
+
     var body: some View {
         NavigationLink(destination: destination) {
             ZStack {

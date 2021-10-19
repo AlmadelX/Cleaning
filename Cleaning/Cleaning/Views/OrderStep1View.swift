@@ -46,10 +46,6 @@ struct OrderStep1View: View {
                                     .frame(height: 16)
                                 
                                 ZStack {
-                                    TextField("", text: $promocode)
-                                        .font(.system(size: 14).weight(.bold))
-                                        
-                                    
                                     HStack {
                                         Group {
                                             if promocode.isEmpty {
@@ -61,6 +57,9 @@ struct OrderStep1View: View {
                                         
                                         Spacer()
                                     }
+                                    
+                                    TextField("", text: $promocode)
+                                        .font(.system(size: 14).weight(.bold))
                                 }
                                 .frame(width: 134)
                                 .foregroundColor(Color("Ochre"))

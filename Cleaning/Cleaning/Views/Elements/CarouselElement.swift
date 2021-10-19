@@ -1,10 +1,13 @@
 import SwiftUI
 
-struct CarouselSectionElement: View {
+struct CarouselElement: View {
     var sectionName: String
-    var elements: [CarouselElementModel]
+    var elements: [ItemModel]
     var mainColor: Color
     var backgroundColor: Color
+    
+    @Binding var price: Int
+    @Binding var time: Double
     
     var body: some View {
         VStack(spacing: 0) {
@@ -21,10 +24,12 @@ struct CarouselSectionElement: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16) {
                     ForEach(elements.indices, id: \.self) { id in
-                        CarouselElementView(
+                        CarouselItemElement(
                             model: elements[id],
                             mainColor: mainColor,
-                            backgroundColor: backgroundColor
+                            backgroundColor: backgroundColor,
+                            price: $price,
+                            time: $time
                         )
                     }
                 }
@@ -34,24 +39,24 @@ struct CarouselSectionElement: View {
     }
 }
 
-struct CarouselSectionElement_Previews: PreviewProvider {
+struct CarouselElement_Previews: PreviewProvider {
     static var previews: some View {
-        CarouselSectionElement(
+        CarouselElement(
             sectionName: "Кухня",
             elements: [
-                CarouselElementModel(
+                ItemModel(
                     image: Image("Pan"),
                     name: "Помыть плиту",
                     price: 320,
                     time: 20
                 ),
-                CarouselElementModel(
+                ItemModel(
                     image: Image("Microwave"),
                     name: "Помыть внутри микроволновки",
                     price: 120,
                     time: 20
                 ),
-                CarouselElementModel(
+                ItemModel(
                     image: Image("Smell"),
                     name: "Вывести запахи",
                     price: 500,
@@ -59,7 +64,9 @@ struct CarouselSectionElement_Previews: PreviewProvider {
                 )
             ],
             mainColor: Color("NeonCarrot"),
-            backgroundColor: Color("Linen")
+            backgroundColor: Color("Linen"),
+            price: .constant(0),
+            time: .constant(0.0)
         )
     }
 }

@@ -14,7 +14,7 @@ struct RelevantOrdersView: View {
                 }
                 
                 VStack {
-                    Image("RelevantOrders")
+                    Image("Woman")
                         .resizable()
                         .scaledToFit()
                         .padding(.trailing, 40)
