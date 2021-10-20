@@ -8,6 +8,7 @@ struct CarouselElement: View {
     
     @Binding var price: Int
     @Binding var time: Double
+    @Binding var addons: Set<String>
     
     var body: some View {
         VStack(spacing: 0) {
@@ -29,7 +30,8 @@ struct CarouselElement: View {
                             mainColor: mainColor,
                             backgroundColor: backgroundColor,
                             price: $price,
-                            time: $time
+                            time: $time,
+                            addons: $addons
                         )
                     }
                 }
@@ -66,7 +68,8 @@ struct CarouselElement_Previews: PreviewProvider {
             mainColor: Color("NeonCarrot"),
             backgroundColor: Color("Linen"),
             price: .constant(0),
-            time: .constant(0.0)
+            time: .constant(0.0),
+            addons: .constant([])
         )
     }
 }

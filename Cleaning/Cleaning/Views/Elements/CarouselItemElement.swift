@@ -9,6 +9,7 @@ struct CarouselItemElement: View {
     
     @Binding var price: Int
     @Binding var time: Double
+    @Binding var addons: Set<String>
     
     var body: some View {
         ZStack {
@@ -83,9 +84,11 @@ struct CarouselItemElement: View {
             if value {
                 price += model.price
                 time += Double(model.time) / 60.0
+                addons.insert(model.name)
             } else {
                 price -= model.price
                 time -= Double(model.time) / 60.0
+                addons.remove(model.name)
             }
         }
     }
@@ -104,7 +107,8 @@ struct CarouselItemElement_Previews: PreviewProvider {
                 mainColor: Color("NeonCarrot"),
                 backgroundColor: Color("Linen"),
                 price: .constant(0),
-                time: .constant(0.0)
+                time: .constant(0.0),
+                addons: .constant([])
             )
             
             CarouselItemElement(
@@ -117,7 +121,8 @@ struct CarouselItemElement_Previews: PreviewProvider {
                 mainColor: Color("NeonCarrot"),
                 backgroundColor: Color("Linen"),
                 price: .constant(0),
-                time: .constant(0.0)
+                time: .constant(0.0),
+                addons: .constant([])
             )
         }
     }

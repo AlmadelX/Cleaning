@@ -8,6 +8,8 @@ struct OrderStep3View: View {
     @State var currentSelection = SelectorMenuModel.Selections.address
     @State var addressFormModel = AddressFormModel()
     
+    @Binding var addons: Set<String>
+    
     var body: some View {
         ZStack {
             Color("White")
@@ -83,7 +85,8 @@ struct OrderStep3View_Previews: PreviewProvider {
             previousChoice: "1 Комната, 1 Санузел",
             time: "4 Часа",
             price: "1290 ₽",
-            currentSelection: .address
+            currentSelection: .address,
+            addons: .constant([])
         )
     }
 }

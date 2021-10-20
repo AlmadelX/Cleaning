@@ -19,6 +19,10 @@ struct OrderTimeView: View {
                 .fontWeight(.bold)
                 .padding(.vertical)
             
+            ScrollView(.horizontal, showsIndicators: false) {
+                
+            }
+            
             Spacer()
             
             ZStack {

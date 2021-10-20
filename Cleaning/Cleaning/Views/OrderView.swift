@@ -15,7 +15,7 @@ struct OrderView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: UIScreen.main.bounds.width)
-                    .padding(.top, 60)
+                    .padding(.top)
                 
                 Spacer()
             }
@@ -61,30 +61,91 @@ struct OrderView: View {
                 }
                 .frame(height: 80)
                 
-                ZStack {
-                    RoundedRectangle(cornerRadius: 15.0)
-                        .foregroundColor(Color("DarkerGhostWhite"))
-                        .frame(height: 128)
-                        .padding(.horizontal, 24)
-                    
-                    VStack {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10.0)
-                                .foregroundColor(Color("White"))
-                            
-                            Image("HourGlass")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 30)
-                        }
-                        .frame(width: 48, height: 48)
+                VStack(alignment: .leading, spacing: 26) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 15.0)
+                            .foregroundColor(Color("DarkerGhostWhite"))
+                            .frame(height: 128)
                         
-                        Text("Ищем клинеров для вас")
-                            .foregroundColor(Color("Vulcan"))
-                            .fontWeight(.bold)
+                        VStack {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 10.0)
+                                    .foregroundColor(Color("White"))
+                                
+                                Image("HourGlass")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 30)
+                            }
+                            .frame(width: 48, height: 48)
+                            
+                            Text("Ищем клинеров для вас")
+                                .foregroundColor(Color("Vulcan"))
+                                .fontWeight(.bold)
+                        }
                     }
+                    .padding(.top, 160)
+                    
+                    HStack {
+                        Text("21 Мая, пт")
+                            .foregroundColor(Color("Vulcan"))
+                            .font(.system(size: 24))
+                            .fontWeight(.bold)
+                            .padding(.trailing, 23)
+                        
+                        Text("18:00")
+                            .foregroundColor(Color("Vulcan"))
+                            .font(.system(size: 24))
+                            .fontWeight(.bold)
+                        
+                        Spacer()
+                    }
+                    
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Адрес")
+                            .foregroundColor(Color("Vulcan"))
+                            .font(.system(size: 16))
+                            .fontWeight(.bold)
+                        
+                        Text(address())
+                            .foregroundColor(Color("Mischka"))
+                            .font(.system(size: 16))
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Дополнительные услуги")
+                            .foregroundColor(Color("Vulcan"))
+                            .font(.system(size: 16))
+                            .fontWeight(.bold)
+
+                        Text(address())
+                            .foregroundColor(Color("Mischka"))
+                            .font(.system(size: 16))
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    
+//                    Circle()
+//                        .foregroundColor(Color("WhiteSmoke"))
+//                        .frame(width: 80, height: 80)
+                    
+                    Spacer()
+                    
+                    Text("Тут будет информация о вашей команде клинеров, когда они найдутся")
+                        .foregroundColor(Color("Mischka"))
+                        .font(.system(size: 16))
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.center)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding(.horizontal, 41)
+                    
+                    Spacer()
                 }
-                .padding(.top, 200)
+                .padding(.horizontal, 24)
                 
                 Spacer()
             }
@@ -93,16 +154,23 @@ struct OrderView: View {
         .navigationBarBackButtonHidden(true)
     }
     
-    func address() -> String {
-        return addressFormModel.city + ", ул. " + addressFormModel.street + ", д. " + addressFormModel.house + ", кв. " + addressFormModel.flat
+    func shortAddress() -> String {
+        return addressFormModel.city + ", ул. " + addressFormModel.street
     }
     
+    func address() -> String {
+        return addressFormModel.city + ", улица " + addressFormModel.street + ", д. " + addressFormModel.house + ", корп. " + addressFormModel.block + ", кв. " + addressFormModel.flat
+    }
 }
 
 struct OrderView_Previews: PreviewProvider {
     static var model = AddressFormModel(
         city: "Екатерибург",
-        street: "Крестинского"
+        street: "Крестинского",
+        house: "41",
+        flat: "50",
+        block: "1",
+        entrance: "1"
     )
     
     static var previews: some View {

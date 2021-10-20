@@ -6,6 +6,7 @@ struct OrderStep2View: View {
     
     @State var price = 650
     @State var time = 3.0
+    @State var addons: Set<String> = []
     
     var body: some View {
         ZStack {
@@ -49,7 +50,8 @@ struct OrderStep2View: View {
                         mainColor: Color("NeonCarrot"),
                         backgroundColor: Color("Linen"),
                         price: $price,
-                        time: $time
+                        time: $time,
+                        addons: $addons
                     )
                     
                     ItemElement(
@@ -90,7 +92,8 @@ struct OrderStep2View: View {
                         mainColor: Color("LighterBlue"),
                         backgroundColor: Color("MediumGhostWhite"),
                         price: $price,
-                        time: $time
+                        time: $time,
+                        addons: $addons
                     )
                     
                     CarouselElement(
@@ -118,7 +121,8 @@ struct OrderStep2View: View {
                         mainColor: Color("NeonCarrot"),
                         backgroundColor: Color("Linen"),
                         price: $price,
-                        time: $time
+                        time: $time,
+                        addons: $addons
                     )
                     
                     CarouselElement(
@@ -146,13 +150,15 @@ struct OrderStep2View: View {
                         mainColor: Color("BlueZodiac"),
                         backgroundColor: Color("LightGrey"),
                         price: $price,
-                        time: $time
+                        time: $time,
+                        addons: $addons
                     )
                     
                     NavigationButtonElement(destination: OrderStep3View(
                         previousChoice: choice(),
                         time: hours(),
-                        price: "\(price) ₽"
+                        price: "\(price) ₽",
+                        addons: $addons
                     )) {
                         HStack {
                             Text("≈ " + hours())
