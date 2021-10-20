@@ -1,71 +1,64 @@
 import SwiftUI
 
 struct OrderFormElement: View {
-    @State var city = ""
-    @State var street = ""
-    @State var house = ""
-    @State var flat = ""
-    @State var block = ""
-    @State var entrance = ""
-    @State var comment = ""
-    
     @Binding var isAddressCorrect: Bool
+    @Binding var model: AddressFormModel
     
     var body: some View {
         VStack(spacing: 16) {
-            FormTextFieldElement(label: "Город", data: $city)
+            FormTextFieldElement(label: "Город", data: $model.city)
                 .frame(height: 60)
                 .padding(.horizontal)
-                .onChange(of: city) { _ in
+                .onChange(of: model.city) { _ in
                     isAddressCorrect = check()
                 }
             
-            FormTextFieldElement(label: "Улица", data: $street)
+            FormTextFieldElement(label: "Улица", data: $model.street)
                 .frame(height: 60)
                 .padding(.horizontal)
                 .disableAutocorrection(true)
-                .onChange(of: street) { _ in
+                .onChange(of: model.street) { _ in
                     isAddressCorrect = check()
                 }
             
             HStack(spacing: 16) {
-                FormTextFieldElement(label: "Дом", data: $house)
+                FormTextFieldElement(label: "Дом", data: $model.house)
                     .frame(height: 60)
-                    .onChange(of: house) { _ in
+                    .onChange(of: model.house) { _ in
                         isAddressCorrect = check()
                     }
                 
-                FormTextFieldElement(label: "Квартира", data: $flat)
+                FormTextFieldElement(label: "Квартира", data: $model.flat)
                     .frame(height: 60)
-                    .onChange(of: flat) { _ in
+                    .onChange(of: model.flat) { _ in
                         isAddressCorrect = check()
                     }
             }
             .padding(.horizontal)
             
             HStack(spacing: 16) {
-                FormTextFieldElement(label: "Корпус", data: $block)
+                FormTextFieldElement(label: "Корпус", data: $model.block)
                     .frame(height: 60)
-                    .onChange(of: block) { _ in
+                    .onChange(of: model.block) { _ in
                         isAddressCorrect = check()
                     }
                 
-                FormTextFieldElement(label: "Подъезд", data: $entrance)
+                FormTextFieldElement(label: "Подъезд", data: $model.entrance)
                     .frame(height: 60)
-                    .onChange(of: entrance) { _ in
+                    .onChange(of: model.entrance) { _ in
                         isAddressCorrect = check()
                     }
             }
             .padding(.horizontal)
             
-            FormTextAreaElement(label: "Комментарий к заказу", data: $comment)
+            FormTextAreaElement(label: "Комментарий к заказу", data: $model.comment)
                 .frame(height: 200)
                 .padding(.horizontal)
         }
     }
     
     func check() -> Bool {
-        if city.isEmpty || street.isEmpty || house.isEmpty || flat.isEmpty || block.isEmpty || entrance.isEmpty {
+        if model.city.isEmpty || model.street.isEmpty || model.house.isEmpty || model.flat.isEmpty || model.block.isEmpty || model.entrance.isEmpty {
             return false
         }
         
@@ -75,6 +68,9 @@ struct OrderFormElement: View {
 
 struct OrderFormElement_Previews: PreviewProvider {
     static var previews: some View {
-        OrderFormElement(isAddressCorrect: .constant(false))
+        OrderFormElement(
+            isAddressCorrect: .constant(false),
+            model: .constant(AddressFormModel())
+        )
     }
 }

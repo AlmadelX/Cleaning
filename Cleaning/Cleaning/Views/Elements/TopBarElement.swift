@@ -3,7 +3,9 @@ import SwiftUI
 struct TopBarElement: View {
     @Environment(\.presentationMode) var presentationMode
     
+    var title = "Стандартная уборка"
     var text: String
+    var showInformationIcon = true
     
     var body: some View {
         ZStack {
@@ -34,15 +36,19 @@ struct TopBarElement: View {
             
             VStack(alignment: .leading) {
                 HStack {
-                    Text("Стандартная уборка")
+                    Text(title)
                         .foregroundColor(Color("Vulcan"))
                         .font(.system(size: 18))
                         .fontWeight(.bold)
                     
-                    Image("InformationIcon")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 20)
+                    Group {
+                        if showInformationIcon {
+                            Image("InformationIcon")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 20)
+                        }
+                    }
                 }
                 
                 Text(text)

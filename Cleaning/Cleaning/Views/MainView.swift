@@ -16,13 +16,9 @@ struct MainView: View {
                         case .orders:
                             OrdersView()
                         case .cleaners:
-                            Spacer()
-                            Text("Cleaners")
-                            Spacer()
+                            CleanersView()
                         case .bonuses:
-                            Spacer()
-                            Text("Bonuses")
-                            Spacer()
+                            BonusesView()
                         case .help:
                             Spacer()
                             Text("Help")

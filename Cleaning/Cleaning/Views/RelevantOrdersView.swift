@@ -56,7 +56,7 @@ struct RelevantOrdersView: View {
                             }
                             .padding(.horizontal, 32)
                             
-                            NavigationButtonElement(destination: OrderStep1View()) {
+                            NavigationButtonElement(destination: OrderStep1View(), isRoot: true) {
                                 HStack {
                                     Text("Заказать уборку")
                                         .fontWeight(.bold)

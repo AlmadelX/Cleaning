@@ -1,20 +1,39 @@
 import SwiftUI
 
 struct NavigationButtonElement<Destination: View, Content: View>: View {
+    @EnvironmentObject var appState: AppStateModel
+    
     var destination: Destination
+    var isRoot = false
     var label: () -> Content
 
     var body: some View {
-        NavigationLink(destination: destination) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 11)
-                    .foregroundColor(Color("LighterBlue"))
-                
-                label()
-                .foregroundColor(Color("White"))
+        Group {
+            if isRoot {
+                NavigationLink(destination: destination, isActive: $appState.makingOrder) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 11)
+                            .foregroundColor(Color("LighterBlue"))
+                        
+                        label()
+                        .foregroundColor(Color("White"))
+                    }
+                    .frame(height: 60)
+                    .padding()
+                }
+            } else {
+                NavigationLink(destination: destination) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 11)
+                            .foregroundColor(Color("LighterBlue"))
+                        
+                        label()
+                        .foregroundColor(Color("White"))
+                    }
+                    .frame(height: 60)
+                    .padding()
+                }
             }
-            .frame(height: 60)
-            .padding()
         }
     }
 }

@@ -4,6 +4,7 @@ struct OrderAddressView: View {
     @State var isAddressCorrect = false
     
     @Binding var currentSelection: SelectorMenuModel.Selections
+    @Binding var addressFormModel: AddressFormModel
     
     var body: some View {
         VStack {
@@ -36,7 +37,10 @@ struct OrderAddressView: View {
                 .fontWeight(.semibold)
                 .padding(.vertical)
             
-            OrderFormElement(isAddressCorrect: $isAddressCorrect)
+            OrderFormElement(
+                isAddressCorrect: $isAddressCorrect,
+                model: $addressFormModel
+            )
             
             ZStack {
                 RoundedRectangle(cornerRadius: 11)
@@ -55,7 +59,9 @@ struct OrderAddressView: View {
             .opacity(isAddressCorrect ? 1.0 : 0.0)
             .disabled(!isAddressCorrect)
             .onTapGesture {
-                currentSelection = .time
+                withAnimation {
+                    currentSelection = .time
+                }
             }
         }
     }
@@ -63,6 +69,9 @@ struct OrderAddressView: View {
 
 struct OrderAddressView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderAddressView(currentSelection: .constant(.address))
+        OrderAddressView(
+            currentSelection: .constant(.address),
+            addressFormModel: .constant(AddressFormModel())
+        )
     }
 }

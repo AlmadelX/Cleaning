@@ -6,6 +6,7 @@ struct OrderStep3View: View {
     var price: String
     
     @State var currentSelection = SelectorMenuModel.Selections.address
+    @State var addressFormModel = AddressFormModel()
     
     var body: some View {
         ZStack {
@@ -54,15 +55,14 @@ struct OrderStep3View: View {
                     Group {
                         switch currentSelection {
                         case .address:
-                            OrderAddressView(currentSelection: $currentSelection)
+                            OrderAddressView(
+                                currentSelection: $currentSelection,
+                                addressFormModel: $addressFormModel
+                            )
                         case .time:
-                            Spacer()
-                            Text("Time")
-                            Spacer()
+                            OrderTimeView(currentSelection: $currentSelection)
                         case .checkout:
-                            Spacer()
-                            Text("Checkout")
-                            Spacer()
+                            OrderCheckoutView(addressFormModel: $addressFormModel)
                         }
                     }
                 }
