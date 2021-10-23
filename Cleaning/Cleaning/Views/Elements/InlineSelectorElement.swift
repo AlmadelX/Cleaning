@@ -3,6 +3,8 @@ import SwiftUI
 struct InlineSelectorElement: View {
     var models: [String]
     
+    @Binding var data: String
+    
     var body: some View {
         ZStack {
             ScrollViewReader { proxy in
@@ -26,6 +28,7 @@ struct InlineSelectorElement: View {
                                 withAnimation {
                                     proxy.scrollTo(id, anchor: .center)
                                 }
+                                data = models[id]
                             }
                         }
                         
@@ -54,7 +57,8 @@ struct InlineSelectorElement_Previews: PreviewProvider {
                 "21, пт",
                 "22, сб",
                 "23, вс"
-            ]
+            ],
+            data: .constant("")
         )
     }
 }

@@ -6,7 +6,7 @@ struct OrderTimeView: View {
     @Binding var orderDate: String
     @Binding var orderTime: String
     
-    var models: [String] {
+    var dataModels: [String] {
         var result: [String] = []
         for i in 1...31 {
             var str = String(i)
@@ -32,6 +32,16 @@ struct OrderTimeView: View {
         return result
     }
     
+    var timeModels: [String] {
+        var result: [String] = []
+        for i in 8...20 {
+            result.append(String(i) + ":00")
+            result.append(String(i) + ":30")
+        }
+        
+        return result
+    }
+    
     var body: some View {
         VStack {
             Text("Выберите удобные дату и время")
@@ -49,7 +59,11 @@ struct OrderTimeView: View {
                 .fontWeight(.bold)
                 .padding(.vertical)
             
-            InlineSelectorElement(models: models)
+            InlineSelectorElement(models: dataModels, data: $orderDate)
+                .padding(.bottom)
+            
+            InlineSelectorElement(models: timeModels, data: $orderTime)
+                .padding(.bottom)
             
             Spacer()
             

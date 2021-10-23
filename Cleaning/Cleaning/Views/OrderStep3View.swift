@@ -7,8 +7,8 @@ struct OrderStep3View: View {
     
     @State var currentSelection = SelectorMenuModel.Selections.address
     @State var addressFormModel = AddressFormModel()
-    @State var orderDate = "21, пт"
-    @State var orderTime = "18:00"
+    @State var orderDate = ""
+    @State var orderTime = ""
     
     @Binding var addons: Set<String>
     

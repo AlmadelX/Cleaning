@@ -172,6 +172,9 @@ struct OrderView: View {
     }
     
     func addonsString() -> String {
+        if addons.isEmpty {
+            return ""
+        }
         var result = ""
         for addon in addons {
             let str = addon.replacingOccurrences(of: "\n", with: " ")
