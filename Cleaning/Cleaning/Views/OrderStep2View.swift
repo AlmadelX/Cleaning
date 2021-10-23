@@ -176,7 +176,7 @@ struct OrderStep2View: View {
                             
                             Spacer()
                             
-                            Text("\(price) ₽")
+                            Text(String(price) + " ₽")
                                 .foregroundColor(Color("White"))
                                 .font(.system(size: 18))
                                 .fontWeight(.bold)

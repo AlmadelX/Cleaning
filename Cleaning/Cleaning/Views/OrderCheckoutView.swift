@@ -1,7 +1,10 @@
 import SwiftUI
 
 struct OrderCheckoutView: View {
+    var price: String
+    
     @Binding var addressFormModel: AddressFormModel
+    @Binding var addons: Set<String>
     
     var body: some View {
         VStack {
@@ -13,7 +16,11 @@ struct OrderCheckoutView: View {
                 .padding(.horizontal, 20)
                 .padding(.vertical)
             
-            NavigationLink(destination: OrderView(addressFormModel: $addressFormModel)) {
+            NavigationLink(destination: OrderView(
+                price: price,
+                addressFormModel: $addressFormModel,
+                addons: $addons
+            )) {
                 ZStack {
                     RoundedRectangle(cornerRadius: 13.0)
                         .foregroundColor(Color("Lavender"))
@@ -27,7 +34,11 @@ struct OrderCheckoutView: View {
                 }
             }
             
-            NavigationLink(destination: OrderView(addressFormModel: $addressFormModel)) {
+            NavigationLink(destination: OrderView(
+                price: price,
+                addressFormModel: $addressFormModel,
+                addons: $addons
+            )) {
                 ZStack {
                     RoundedRectangle(cornerRadius: 13.0)
                         .foregroundColor(Color("Lavender"))
@@ -47,7 +58,11 @@ struct OrderCheckoutView: View {
                 .fontWeight(.semibold)
                 .padding(.vertical)
             
-            NavigationLink(destination: OrderView(addressFormModel: $addressFormModel)) {
+            NavigationLink(destination: OrderView(
+                price: price,
+                addressFormModel: $addressFormModel,
+                addons: $addons
+            )) {
                 Image("ApplePay")
                     .resizable()
                     .scaledToFit()
@@ -61,6 +76,10 @@ struct OrderCheckoutView: View {
 
 struct OrderCheckoutView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderCheckoutView(addressFormModel: .constant(AddressFormModel()))
+        OrderCheckoutView(
+            price: "100 $",
+            addressFormModel: .constant(AddressFormModel()),
+            addons: .constant([])
+        )
     }
 }

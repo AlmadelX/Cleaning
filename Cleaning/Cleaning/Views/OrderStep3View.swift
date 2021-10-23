@@ -64,7 +64,7 @@ struct OrderStep3View: View {
                         case .time:
                             OrderTimeView(currentSelection: $currentSelection)
                         case .checkout:
-                            OrderCheckoutView(addressFormModel: $addressFormModel)
+                            OrderCheckoutView(price: price, addressFormModel: $addressFormModel, addons: $addons)
                         }
                     }
                 }

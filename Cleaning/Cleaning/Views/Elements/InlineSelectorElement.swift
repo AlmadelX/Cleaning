@@ -6,16 +6,36 @@ struct InlineSelectorElement: View {
     var body: some View {
         ZStack {
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    ForEach(models, id: \.self) { model in
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 15.0)
-                                .foregroundColor(Color("Lavender"))
+                ScrollViewReader { proxy in
+                    HStack {
+                        Spacer()
+                            .frame(width: UIScreen.main.bounds.width / 2.0 - 30, height: 0)
+                        
+                        ForEach(models.indices, id: \.self) { id in
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 15.0)
+                                    .foregroundColor(Color("Lavender"))
+                                
+                                Text(models[id])
+                                    .foregroundColor(Color("LighterBlue"))
+                                    .fontWeight(.bold)
+                            }
+                            .frame(width: 60, height: 60)
+                            .id(id)
+                            .onTapGesture {
+                                withAnimation {
+                                    proxy.scrollTo(id, anchor: .center)
+                                }
+                            }
                         }
-                        .frame(width: 60, height: 60)
+                        
+                        Spacer()
+                            .frame(width: UIScreen.main.bounds.width / 2.0 - 30, height: 0)
                     }
+                    
                 }
             }
+//            .disabled(true)
             
             RoundedRectangle(cornerRadius: 21.0)
                 .stroke(Color("LighterBlue"), lineWidth: 5.0)

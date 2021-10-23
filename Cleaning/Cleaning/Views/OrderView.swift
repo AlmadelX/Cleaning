@@ -3,7 +3,10 @@ import SwiftUI
 struct OrderView: View {
     @EnvironmentObject var appState: AppStateModel
     
+    var price: String
+    
     @Binding var addressFormModel: AddressFormModel
+    @Binding var addons: Set<String>
     
     var body: some View {
         ZStack {
@@ -31,6 +34,9 @@ struct OrderView: View {
                             backgroundColor: Color("DarkerGhostWhite"),
                             action: {
                                 appState.makingOrder = false
+                                appState.isOrderMade = true
+                                appState.orderPrice = price
+                                appState.orderAddress = address()
                             }
                         ) {
                             Image("BackwardArrow")
@@ -48,7 +54,7 @@ struct OrderView: View {
                                 .font(.system(size: 18))
                                 .fontWeight(.bold)
                             
-                            Text(address())
+                            Text(shortAddress())
                                 .foregroundColor(Color("Mischka"))
                                 .font(.system(size: 14))
                                 .fontWeight(.semibold)
@@ -121,7 +127,7 @@ struct OrderView: View {
                             .font(.system(size: 16))
                             .fontWeight(.bold)
 
-                        Text(address())
+                        Text(addonsString())
                             .foregroundColor(Color("Mischka"))
                             .font(.system(size: 16))
                             .fontWeight(.bold)
@@ -161,6 +167,17 @@ struct OrderView: View {
     func address() -> String {
         return addressFormModel.city + ", улица " + addressFormModel.street + ", д. " + addressFormModel.house + ", корп. " + addressFormModel.block + ", кв. " + addressFormModel.flat
     }
+    
+    func addonsString() -> String {
+        var result = ""
+        for addon in addons {
+            let str = addon.replacingOccurrences(of: "\n", with: " ")
+            result += str + ", "
+        }
+        result.removeLast(2)
+        
+        return result
+    }
 }
 
 struct OrderView_Previews: PreviewProvider {
@@ -174,6 +191,10 @@ struct OrderView_Previews: PreviewProvider {
     )
     
     static var previews: some View {
-        OrderView(addressFormModel: .constant(model))
+        OrderView(
+            price: "100 $",
+            addressFormModel: .constant(model),
+            addons: .constant([])
+        )
     }
 }

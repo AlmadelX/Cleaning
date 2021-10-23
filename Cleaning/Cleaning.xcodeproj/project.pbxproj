@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34052E202723B04100B78B93 /* MakeOrderElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34052E1F2723B04100B78B93 /* MakeOrderElement.swift */; };
+		34052E222723B12C00B78B93 /* CreatedOrderElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34052E212723B12C00B78B93 /* CreatedOrderElement.swift */; };
 		341C9F3F271C4BF4003CC41F /* BottomMenuElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341C9F3E271C4BF4003CC41F /* BottomMenuElement.swift */; };
 		341C9F41271C4E31003CC41F /* BottomMenuComponentElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341C9F40271C4E31003CC41F /* BottomMenuComponentElement.swift */; };
 		341C9F43271C4F8F003CC41F /* BottomMenuComponentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341C9F42271C4F8F003CC41F /* BottomMenuComponentModel.swift */; };
@@ -55,6 +57,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		34052E1F2723B04100B78B93 /* MakeOrderElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeOrderElement.swift; sourceTree = "<group>"; };
+		34052E212723B12C00B78B93 /* CreatedOrderElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedOrderElement.swift; sourceTree = "<group>"; };
 		341C9F3E271C4BF4003CC41F /* BottomMenuElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMenuElement.swift; sourceTree = "<group>"; };
 		341C9F40271C4E31003CC41F /* BottomMenuComponentElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMenuComponentElement.swift; sourceTree = "<group>"; };
 		341C9F42271C4F8F003CC41F /* BottomMenuComponentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMenuComponentModel.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 				343BEEB9271DC5E50099CB81 /* FormTextFieldElement.swift */,
 				343BEEBB271DD32A0099CB81 /* FormTextAreaElement.swift */,
 				342E8573271EE854003F3048 /* InlineSelectorElement.swift */,
+				34052E1F2723B04100B78B93 /* MakeOrderElement.swift */,
+				34052E212723B12C00B78B93 /* CreatedOrderElement.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -329,6 +335,8 @@
 				342FE47D2716D15B00236C51 /* OnboardingPageView.swift in Sources */,
 				343BEEB4271DB2390099CB81 /* SelectorMenuElement.swift in Sources */,
 				3444F0392719D9CA00142A50 /* PaginationModel.swift in Sources */,
+				34052E222723B12C00B78B93 /* CreatedOrderElement.swift in Sources */,
+				34052E202723B04100B78B93 /* MakeOrderElement.swift in Sources */,
 				342E8574271EE854003F3048 /* InlineSelectorElement.swift in Sources */,
 				343BEEB6271DC0690099CB81 /* OrderAddressView.swift in Sources */,
 				341C9F3F271C4BF4003CC41F /* BottomMenuElement.swift in Sources */,
