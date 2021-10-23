@@ -5,6 +5,8 @@ struct OrderCheckoutView: View {
     
     @Binding var addressFormModel: AddressFormModel
     @Binding var addons: Set<String>
+    @Binding var orderDate: String
+    @Binding var orderTime: String
     
     var body: some View {
         VStack {
@@ -19,7 +21,9 @@ struct OrderCheckoutView: View {
             NavigationLink(destination: OrderView(
                 price: price,
                 addressFormModel: $addressFormModel,
-                addons: $addons
+                addons: $addons,
+                orderDate: $orderDate,
+                orderTime: $orderTime
             )) {
                 ZStack {
                     RoundedRectangle(cornerRadius: 13.0)
@@ -37,7 +41,9 @@ struct OrderCheckoutView: View {
             NavigationLink(destination: OrderView(
                 price: price,
                 addressFormModel: $addressFormModel,
-                addons: $addons
+                addons: $addons,
+                orderDate: $orderDate,
+                orderTime: $orderTime
             )) {
                 ZStack {
                     RoundedRectangle(cornerRadius: 13.0)
@@ -61,7 +67,9 @@ struct OrderCheckoutView: View {
             NavigationLink(destination: OrderView(
                 price: price,
                 addressFormModel: $addressFormModel,
-                addons: $addons
+                addons: $addons,
+                orderDate: $orderDate,
+                orderTime: $orderTime
             )) {
                 Image("ApplePay")
                     .resizable()
@@ -79,7 +87,9 @@ struct OrderCheckoutView_Previews: PreviewProvider {
         OrderCheckoutView(
             price: "100 $",
             addressFormModel: .constant(AddressFormModel()),
-            addons: .constant([])
+            addons: .constant([]),
+            orderDate: .constant(""),
+            orderTime: .constant("")
         )
     }
 }

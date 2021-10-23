@@ -7,6 +7,8 @@ struct OrderStep3View: View {
     
     @State var currentSelection = SelectorMenuModel.Selections.address
     @State var addressFormModel = AddressFormModel()
+    @State var orderDate = "21, пт"
+    @State var orderTime = "18:00"
     
     @Binding var addons: Set<String>
     
@@ -62,9 +64,19 @@ struct OrderStep3View: View {
                                 addressFormModel: $addressFormModel
                             )
                         case .time:
-                            OrderTimeView(currentSelection: $currentSelection)
+                            OrderTimeView(
+                                currentSelection: $currentSelection,
+                                orderDate: $orderDate,
+                                orderTime: $orderTime
+                            )
                         case .checkout:
-                            OrderCheckoutView(price: price, addressFormModel: $addressFormModel, addons: $addons)
+                            OrderCheckoutView(
+                                price: price,
+                                addressFormModel: $addressFormModel,
+                                addons: $addons,
+                                orderDate: $orderDate,
+                                orderTime: $orderTime
+                            )
                         }
                     }
                 }

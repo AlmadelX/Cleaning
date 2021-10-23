@@ -3,6 +3,9 @@ import SwiftUI
 struct OrderTimeView: View {
     @Binding var currentSelection: SelectorMenuModel.Selections
     
+    @Binding var orderDate: String
+    @Binding var orderTime: String
+    
     var models: [String] {
         var result: [String] = []
         for i in 1...31 {
@@ -75,6 +78,10 @@ struct OrderTimeView: View {
 
 struct OrderTimeView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderTimeView(currentSelection: .constant(.time))
+        OrderTimeView(
+            currentSelection: .constant(.time),
+            orderDate: .constant(""),
+            orderTime: .constant("")
+        )
     }
 }

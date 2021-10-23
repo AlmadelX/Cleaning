@@ -5,8 +5,8 @@ struct InlineSelectorElement: View {
     
     var body: some View {
         ZStack {
-            ScrollView(.horizontal, showsIndicators: false) {
-                ScrollViewReader { proxy in
+            ScrollViewReader { proxy in
+                ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         Spacer()
                             .frame(width: UIScreen.main.bounds.width / 2.0 - 30, height: 0)
@@ -32,10 +32,8 @@ struct InlineSelectorElement: View {
                         Spacer()
                             .frame(width: UIScreen.main.bounds.width / 2.0 - 30, height: 0)
                     }
-                    
                 }
             }
-//            .disabled(true)
             
             RoundedRectangle(cornerRadius: 21.0)
                 .stroke(Color("LighterBlue"), lineWidth: 5.0)

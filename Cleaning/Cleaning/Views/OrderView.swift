@@ -7,6 +7,8 @@ struct OrderView: View {
     
     @Binding var addressFormModel: AddressFormModel
     @Binding var addons: Set<String>
+    @Binding var orderDate: String
+    @Binding var orderTime: String
     
     var body: some View {
         ZStack {
@@ -58,7 +60,8 @@ struct OrderView: View {
                                 .foregroundColor(Color("Mischka"))
                                 .font(.system(size: 14))
                                 .fontWeight(.semibold)
-                                .frame(width: 200)
+//                                .frame(width: 200)
+                                .fixedSize(horizontal: false, vertical: true)
                                 .lineLimit(1)
                         }
                         
@@ -93,13 +96,13 @@ struct OrderView: View {
                     .padding(.top, 160)
                     
                     HStack {
-                        Text("21 Мая, пт")
+                        Text(date())
                             .foregroundColor(Color("Vulcan"))
                             .font(.system(size: 24))
                             .fontWeight(.bold)
                             .padding(.trailing, 23)
                         
-                        Text("18:00")
+                        Text(orderTime)
                             .foregroundColor(Color("Vulcan"))
                             .font(.system(size: 24))
                             .fontWeight(.bold)
@@ -178,6 +181,14 @@ struct OrderView: View {
         
         return result
     }
+    
+    func date() -> String {
+        let weekday = orderDate.suffix(2)
+        var day = orderDate
+        day.removeLast(4)
+
+        return day + " Октября, " + weekday
+    }
 }
 
 struct OrderView_Previews: PreviewProvider {
@@ -194,7 +205,10 @@ struct OrderView_Previews: PreviewProvider {
         OrderView(
             price: "100 $",
             addressFormModel: .constant(model),
-            addons: .constant([])
+            addons: .constant([]),
+            orderDate: .constant("21 Мая, пт"),
+            orderTime: .constant("18:00")
         )
+            .environmentObject(AppStateModel())
     }
 }
